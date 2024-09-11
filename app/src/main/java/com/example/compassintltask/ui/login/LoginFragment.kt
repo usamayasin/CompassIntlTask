@@ -15,6 +15,7 @@ import com.example.compassintltask.data.remote.model.LoginRequestBody
 import com.example.compassintltask.databinding.LoginFragmentBinding
 import com.example.compassintltask.utils.Constants
 import com.example.compassintltask.utils.gone
+import com.example.compassintltask.utils.showErrorDialog
 import com.example.compassintltask.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -51,12 +52,28 @@ class LoginFragment : Fragment() {
 
     private fun initListener() {
         binding.loginButton.setOnClickListener {
-            viewModel.handleLogin(
-                LoginRequestBody(
-                    username = binding.usernameEditText.text.toString().trim(),
-                    password = binding.passwordEditText.text.toString().trim()
+            binding.usernameInputLayout.error = null
+            binding.passwordInputLayout.error = null
+
+            if (validateCredentials(
+                    binding.usernameEditText.text.toString().trim(),
+                    binding.passwordEditText.text.toString().trim()
                 )
-            )
+            ) {
+                viewModel.handleLogin(
+                    LoginRequestBody(
+                        username = binding.usernameEditText.text.toString().trim(),
+                        password = binding.passwordEditText.text.toString().trim()
+                    )
+                )
+            } else {
+                if (binding.usernameEditText.text.toString().trim().isEmpty()) {
+                    binding.usernameInputLayout.error = "Invalid Username"
+                } else if (binding.passwordEditText.text.toString().trim().isEmpty()) {
+                    binding.passwordInputLayout.error = "Invalid Password"
+                }
+            }
+
         }
     }
 
@@ -81,6 +98,7 @@ class LoginFragment : Fragment() {
 
                     is UIState.ErrorState -> {
                         binding.progressbar.gone()
+                        requireContext().showErrorDialog(uiState.message)
                     }
                 }
             }
@@ -92,4 +110,10 @@ class LoginFragment : Fragment() {
         super.onDestroyView()
         viewModel.loginLiveData.removeObservers(this)
     }
+
+   private fun validateCredentials(username: String, password: String): Boolean {
+        return username.isNotBlank() && password.isNotBlank()
+    }
+
+
 }
