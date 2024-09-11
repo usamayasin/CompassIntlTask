@@ -1,0 +1,80 @@
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Base.Theme.CompassIntlTask" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your light theme here. &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_light_primary</item> &ndash;&gt;-->
+<!--    </style>-->
+
+<!--    <style name="Theme.CompassIntlTask" parent="Base.Theme.CompassIntlTask" />-->
+<!--</resources>-->
+
+<resources>
+<!-- Base application theme. -->
+<style name="Theme.CompassIntlTask" parent="Theme.Material3.Light.NoActionBar">
+    <!-- Primary branding color -->
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorPrimaryDark">@color/primaryColor</item>
+    <item name="colorAccent">@color/accentColor</item>
+    <!-- Customize your theme here -->
+    <item name="android:textColor">@color/textColor</item>
+    <item name="android:buttonStyle">@style/ButtonStyle</item>
+    <item name="textInputOutlinedStyle">@style/text_input_layout_style</item>
+</style>
+
+<!-- Button Style -->
+<style name="ButtonStyle" parent="Widget.AppCompat.Button">
+    <item name="android:backgroundTint">@color/accentColor</item>
+    <item name="android:textColor">@color/secondaryColor</item>
+</style>
+
+<!-- Text Appearance for Headings -->
+<style name="text_heading">
+    <item name="android:textSize">@dimen/text_size_4x</item>
+    <item name="android:textColor">@color/textColor</item>
+</style>
+
+<!-- Text Appearance for Subheadings -->
+<style name="text_subheading">
+    <item name="android:textSize">@dimen/text_size_3x</item>
+    <item name="android:textColor">@color/textColor</item>
+</style>
+
+<!-- Text Appearance for Body Text -->
+<style name="text_body">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/textColor</item>
+</style>
+
+<style name="text_input_layout_style" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+    <item name="boxCornerRadiusBottomEnd">@dimen/radius_1x</item>
+    <item name="boxCornerRadiusBottomStart">@dimen/radius_1x</item>
+    <item name="boxCornerRadiusTopEnd">@dimen/radius_1x</item>
+    <item name="boxCornerRadiusTopStart">@dimen/radius_1x</item>
+    <item name="color">@color/accentColor</item>
+    <item name="helperTextTextAppearance">@style/TextAppearance.Material3.LabelSmall</item>
+</style>
+
+<style name="text_button_style" parent="Widget.Material3.Button">
+    <item name="android:paddingTop">@dimen/padding_0x</item>
+    <item name="android:paddingBottom">@dimen/padding_0x</item>
+    <item name="iconGravity">textStart</item>
+    <item name="iconTint">@color/white</item>
+    <item name="android:layout_margin">@dimen/margin_3x</item>
+    <item name="iconPadding">8dp</item>
+    <item name="labelStyle">@style/TextAppearance.Material3.LabelLarge</item>
+</style>
+
+<style name="Theme.CompassIntlTask.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+</style>
+
+<style name="NavigationItemNoRipple">
+    <item name="android:colorControlHighlight">@android:color/transparent</item>
+</style>
+
+<style name="Theme.CompassIntlTask.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+<style name="Theme.CompassIntlTask.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
