@@ -46,8 +46,12 @@ An simple App to showcase login and account info
 1. Enter Username: Mockuser123
 2. Enter Password: 0000
 - These are the valid credentials
-- 
+
+
+
 ## Screenshots
+![image](https://github.com/user-attachments/assets/0a96fa1f-47df-496a-8a41-f4561e0cf49e)
+![image](https://github.com/user-attachments/assets/23083cc5-3b59-406c-8a91-5f25b7a3f162)
 
 
 ## 👨 Developed By
